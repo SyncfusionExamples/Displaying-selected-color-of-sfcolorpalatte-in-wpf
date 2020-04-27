@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorPalatte_SelectedColor"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ColorPalatte_SelectedColor.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:ColorHexToStringConverter  x:Key="ColorToSolidColorBrush_ValueConverter"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel  Margin="20" >
+            <TextBlock  Margin="5" FontSize="16" FontWeight="Bold" Text="SelectedColor"/>
+            <Rectangle HorizontalAlignment="Left"  Margin="5" Height="75" Width="75" 
+                       Fill="{Binding ElementName=SfColorPalette ,Path= SelectedColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"/>
+        </StackPanel>
+        <syncfusion:SfColorPalette x:Name="SfColorPalette" Margin="454,44,0,-44" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
